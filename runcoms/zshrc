@@ -11,3 +11,48 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+alias ls='ls --color=auto'
+alias ll='ls -l'
+alias vi='vim'
+
+export LANG=en_US.UTF-8
+
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
+# Load Git completion
+zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
+fpath=(~/.zsh $fpath)
+autoload -Uz compinit && compinit
+
+export EDITOR=vim
+export NNN_USE_EDITOR=1
+export NNN_TMPFILE="/tmp/nnn"
+
+n()
+{
+        nnn "$@"
+
+        if [ -f $NNN_TMPFILE ]; then
+                . $NNN_TMPFILE
+                rm -f $NNN_TMPFILE > /dev/null
+        fi
+}
+
+export PATH=$PATH:$HOME/bin
+
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+export PATH=$PATH:$HOME/pkg/protoc/bin
+
+source /opt/kube-ps1/kube-ps1.sh
+export PROMPT='$(kube_ps1)'$PROMPT
+
+autoload -U +X bashcompinit && bashcompinit
+source '/home/oudwud/lib/azure-cli/az.completion'
+
+source <(kubectl completion zsh)
+source <(helm completion zsh)
