@@ -43,6 +43,7 @@ n()
 
 export PATH=$PATH:$HOME/bin
 
+export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
@@ -56,3 +57,13 @@ source '/home/oudwud/lib/azure-cli/az.completion'
 
 source <(kubectl completion zsh)
 source <(helm completion zsh)
+
+# rust
+source $HOME/.cargo/env
+export PATH=$PATH:$HOME/.cargo/bin
+
+# pip install path
+export PATH=$PATH:$HOME/.local/bin
+
+# pbcopy
+alias pbcopy='xclip -selection clipboard'
