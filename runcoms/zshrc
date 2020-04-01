@@ -14,7 +14,7 @@ fi
 
 alias ls='ls --color=auto'
 alias ll='ls -l'
-alias vi='vim'
+alias vi='nvim'
 
 export LANG=en_US.UTF-8
 
@@ -27,7 +27,7 @@ zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 fpath=(~/.zsh $fpath)
 autoload -Uz compinit && compinit
 
-export EDITOR=vim
+export EDITOR=nvim
 export NNN_USE_EDITOR=1
 export NNN_TMPFILE="/tmp/nnn"
 
