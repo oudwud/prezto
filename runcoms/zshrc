@@ -67,3 +67,6 @@ export PATH=$PATH:$HOME/.local/bin
 
 # pbcopy
 alias pbcopy='xclip -selection clipboard'
+
+# disable touchscreen
+xinput | grep 'ELAN Touchscreen' | grep -Po 'id=[0-9]*' | cut -d= -f2 | xargs xinput disable
