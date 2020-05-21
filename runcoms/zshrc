@@ -14,13 +14,9 @@ fi
 
 alias ls='ls --color=auto'
 alias ll='ls -l'
-alias vi='nvim'
+alias vi='vim'
 
 export LANG=en_US.UTF-8
-
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
 
 # Load Git completion
 zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
@@ -49,14 +45,7 @@ export PATH=$PATH:$GOPATH/bin
 
 export PATH=$PATH:$HOME/pkg/protoc/bin
 
-source /opt/kube-ps1/kube-ps1.sh
-export PROMPT='$(kube_ps1)'$PROMPT
-
 autoload -U +X bashcompinit && bashcompinit
-source '/home/oudwud/lib/azure-cli/az.completion'
-
-source <(kubectl completion zsh)
-source <(helm completion zsh)
 
 # rust
 source $HOME/.cargo/env
@@ -67,6 +56,3 @@ export PATH=$PATH:$HOME/.local/bin
 
 # pbcopy
 alias pbcopy='xclip -selection clipboard'
-
-# disable touchscreen
-xinput | grep 'ELAN Touchscreen' | grep -Po 'id=[0-9]*' | cut -d= -f2 | xargs xinput disable
