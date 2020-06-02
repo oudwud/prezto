@@ -23,19 +23,7 @@ zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 fpath=(~/.zsh $fpath)
 autoload -Uz compinit && compinit
 
-export EDITOR=nvim
-export NNN_USE_EDITOR=1
-export NNN_TMPFILE="/tmp/nnn"
-
-n()
-{
-        nnn "$@"
-
-        if [ -f $NNN_TMPFILE ]; then
-                . $NNN_TMPFILE
-                rm -f $NNN_TMPFILE > /dev/null
-        fi
-}
+export EDITOR=vim
 
 export PATH=$PATH:$HOME/bin
 
@@ -44,8 +32,6 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 export PATH=$PATH:$HOME/pkg/protoc/bin
-
-autoload -U +X bashcompinit && bashcompinit
 
 # rust
 source $HOME/.cargo/env
@@ -56,3 +42,6 @@ export PATH=$PATH:$HOME/.local/bin
 
 # pbcopy
 alias pbcopy='xclip -selection clipboard'
+
+# vcpkg
+export PATH=$PATH:$HOME/repos/vcpkg
