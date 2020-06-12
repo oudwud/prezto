@@ -18,12 +18,18 @@ alias vi='vim'
 
 export LANG=en_US.UTF-8
 
+export REPOS=$HOME/repos
+
 # Load Git completion
 zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 fpath=(~/.zsh $fpath)
 autoload -Uz compinit && compinit
 
 export EDITOR=vim
+
+# nnn
+export NNN_OPTS="e"  # open files using $EDITOR
+source $REPOS/nnn/misc/quitcd/quitcd.bash_zsh
 
 export PATH=$PATH:$HOME/bin
 
