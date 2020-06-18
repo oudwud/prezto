@@ -25,10 +25,11 @@ zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 fpath=(~/.zsh $fpath)
 autoload -Uz compinit && compinit
 
+export VISUAL=vim
 export EDITOR=vim
 
 # nnn
-export NNN_OPTS="e"  # open files using $EDITOR
+export NNN_OPTS="e"
 source $REPOS/nnn/misc/quitcd/quitcd.bash_zsh
 
 export PATH=$PATH:$HOME/bin
